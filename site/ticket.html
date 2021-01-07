@@ -1,0 +1,52 @@
+
+<h1>This is your Ticket!</h1>
+<h2>Do not share this with anyone or you may lose your seat on the train</h2>
+
+<style>
+svg {
+    width:100%;
+    height:auto;
+}
+</style>
+
+<div id='ticket_front'>
+</div>
+
+<div id='ticket'>
+
+    <div id='ticket_front'>
+        {%include img/ticket_front_optimized.svg %}
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div id='ticket_back'>
+        {%include img/ticket_back_optimized.svg %}
+    </div>
+    
+</div>
+
+<div id='ticket_back'>
+
+<script>
+// lets load and write our url params
+// first get the url parameters
+const url_param_string = window.location.search;
+const url_params = new URLSearchParams(url_param_string);
+//now lets set the corresponding ticket parameters
+// set the names
+const name = url_params.get("name").toUpperCase()
+document.querySelector('[id="name"]').firstElementChild.textContent = name;
+document.querySelector('[id="name_stub"]').firstElementChild.textContent = name;
+// depart date
+dep_date = url_params.get("depart_date");
+document.querySelector('[id="depart_date"]').firstElementChild.textContent = dep_date
+document.querySelector('[id="depart_date_stub"]').firstElementChild.textContent = dep_date
+// return date
+const ret_date = url_params.get('return_date');
+document.querySelector('[id="return_date"]').firstElementChild.textContent = ret_date;
+document.querySelector('[id="return_date_stub"]').firstElementChild.textContent = url_params.get("ret_date");
+</script>
+</div>

@@ -13,11 +13,12 @@
         <label for='depart_date'>Depart:</label>
         <input type='date' id='depart_date' name='depart_date'>
         <label for='return_date'>Return:</label>
-        <input type='date' value='0001-01-01' name='arrive_date' readonly>
+        <input type='date' value='0001-01-01' id='return_date' name='return_date' readonly>
         <label for='departure'>Get Ticket!</label>
         <input type='submit' id='get_ticket'>
     </form>
     <script>
+    // set default date
     var today = new Date(); //get todays date
     var ticket_form = document.querySelector('#ticket_info').querySelector('form'); // get the form handle
     ticket_form.querySelector('#depart_date').setAttribute('value',today.toISOString().substr(0,10)) // set todays date
