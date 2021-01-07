@@ -1,12 +1,12 @@
+---
+layout: default
+---
 
 <h1>This is your Ticket!</h1>
 <h2>Do not share this with anyone or you may lose your seat on the train</h2>
 
 <style>
-svg {
-    width:100%;
-    height:auto;
-}
+    {%include css/ticket.css%}
 </style>
 
 <div id='ticket_front'>
@@ -39,7 +39,7 @@ const url_params = new URLSearchParams(url_param_string);
 // set the names
 const name = url_params.get("name").toUpperCase()
 document.querySelector('[id="name"]').firstElementChild.textContent = name;
-document.querySelector('[id="name_stub"]').firstElementChild.textContent = name;
+document.querySelector('[id="name_stub"]').firstElementChild.textContent = name.replace(' ','\n');
 // depart date
 dep_date = url_params.get("depart_date");
 document.querySelector('[id="depart_date"]').firstElementChild.textContent = dep_date

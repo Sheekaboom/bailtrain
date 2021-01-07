@@ -7,10 +7,12 @@
   </pattern>
  </defs>
  <g transform="translate(0,453)">
-  <g fill="#d7e8f9" stroke-width="0">
-   <rect x="919.41" y="-455.63" width="333.62" height="753.02"/>
-   <rect x="2.9532e-14" y="115.57" width="919.41" height="181.82"/>
-   <rect y="-455.63" width="919.24" height="57.155"/>
+  <g>
+   <rect y="-398.48" width="920.13" height="286.13" fill="#fffffa"/>
+   <rect x="919.41" y="-451.51" width="329.1" height="748.9" fill="#d7e8f9" stroke-width="0"/>
+   <rect x=".89352" y="64.167" width="918.51" height="51.405" fill="#fffffa"/>
+   <rect x="2.9532e-14" y="115.57" width="919.41" height="181.82" fill="#d7e8f9" stroke-width="0"/>
+   <rect x="1.4904" y="-451.51" width="917.75" height="53.033" fill="#d7e8f9" stroke-width="0"/>
   </g>
   <g>
    <path d="m919.41-440.66v724.83" fill="none" stroke="#000" stroke-dasharray="18,18" stroke-dashoffset="1.5" stroke-width="3"/>
@@ -19,11 +21,9 @@
   </g>
   <g fill="none" stroke="#000">
    <g>
-    <g stroke-width="3">
-     <path d="m0.89352-112.73 919.24 0.37798"/>
-     <path d="m917.73 64.167h-919.24"/>
-     <path d="m920.37 115.57h-921.88"/>
-    </g>
+    <path d="m0.89352-112.73 919.24 0.37798" stroke-width="3"/>
+    <path d="m917.73 64.167h-916.59" stroke-width="2.9957"/>
+    <path d="m920.37 115.57h-919.62" stroke-width="2.9963"/>
     <path d="m131.54 115.57v179.92h-1.5119"/>
    </g>
    <rect x="1.4904" y="-451.51" width="1247" height="747.02" stroke-dashoffset="5.6693" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2.9808"/>

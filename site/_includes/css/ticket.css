@@ -1,0 +1,15 @@
+svg {
+    padding: 0 5% 0 5% ;
+    width:auto;
+    max-width:700px;
+    height:auto;
+}
+
+@media print{
+    svg{
+        padding: 0 10px 0 10px;
+        width: auto;
+        max-width:500px;
+        height: auto;
+    }
+}

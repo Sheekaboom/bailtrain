@@ -1,0 +1,8 @@
+html{
+    --bg-color:#8FB3C5;
+    background-color:var(--bg-color);
+}
+
+body{
+    display:grid;
+}
