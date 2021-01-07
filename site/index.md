@@ -1,0 +1,25 @@
+---
+---
+
+<div id='title_phrase'>
+    <span>Catch the train...</span><span>So you don't have to hang</span>
+</div>
+
+
+<div id='ticket_info'>
+    <form action="/ticket" method="GET">
+        <label for='name'>Name:</label>
+        <input type='text' id='name' name='name'>
+        <label for='depart_date'>Depart:</label>
+        <input type='date' id='depart_date' name='depart_date'>
+        <label for='return_date'>Return:</label>
+        <input type='date' value='0001-01-01' name='arrive_date' readonly>
+        <label for='departure'>Get Ticket!</label>
+        <input type='submit' id='get_ticket'>
+    </form>
+    <script>
+    var today = new Date(); //get todays date
+    var ticket_form = document.querySelector('#ticket_info').querySelector('form'); // get the form handle
+    ticket_form.querySelector('#depart_date').setAttribute('value',today.toISOString().substr(0,10)) // set todays date
+    </script>
+</div>
