@@ -1,5 +1,7 @@
 svg {
     padding: 0 5% 0 5% ;
+}
+svg g{
     width:auto;
     max-width:700px;
     height:auto;

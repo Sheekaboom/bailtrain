@@ -3,6 +3,24 @@ html{
     background-color:var(--bg-color);
 }
 
-body{
+main{
     display:grid;
+    align-items:center;
+    justify-content:center;
+    grid-template-areas:
+        'header' 
+        'title-phrase'
+        'input'
+        'footer';
+    grid-template-columns: 100%
+
+}
+
+#title_phrase{
+    font-style:italic;
+    grid-area: title-phrase;
+}
+
+#ticket_info{
+    grid-area: input;
 }
