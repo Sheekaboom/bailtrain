@@ -1,11 +1,21 @@
 form{
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
+    width:90%;
+    max-width:500px;
 }
 
 input{
     display:block;
+}
+
+input[type='date']{
+    width:150px
+}
+.name_input{
+    min-width:100px;
 }
 
 #title_phrase{
