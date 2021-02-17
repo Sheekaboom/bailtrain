@@ -2,6 +2,9 @@
 layout: default
 ---
 
+<!-- Load QR code library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 <h1>This is your Ticket!</h1>
 <h2>Do not share this with anyone or you may lose your seat on the train</h2>
 
@@ -9,8 +12,8 @@ layout: default
     {%include css/ticket.css%}
 </style>
 
-<div id='ticket_front'>
-</div>
+<!-- Container to store qr data (cant seem to get it directly into svg)-->
+<div id='qr_container' style='display:none'></div>
 
 <div id='ticket'>
 
@@ -27,8 +30,6 @@ layout: default
     </div>
     
 </div>
-
-<div id='ticket_back'>
 
 <script>
 // lets load and write our url params
@@ -48,5 +49,38 @@ document.querySelector('[id="depart_date_stub"]').firstElementChild.textContent 
 const ret_date = url_params.get('return_date');
 document.querySelector('[id="return_date"]').firstElementChild.textContent = ret_date;
 document.querySelector('[id="return_date_stub"]').firstElementChild.textContent = url_params.get("ret_date");
+
+// Update the QR codes. This has some weirdness to get it into SVG
+var qr_container = document.getElementById("qr_container")
+var qr_code = new QRCode(qr_container, {
+	text: window.location.href,
+	colorDark : "#000000",
+	colorLight : "#ffffff",
+	correctLevel : QRCode.CorrectLevel.L
+});
+var qr_img_src = qr_code._oDrawing._elCanvas.toDataURL("image/png") // get the image source from the canvas (base64)
+qr_code_pattern = document.getElementById('qr_fill');
+qr_code_pattern.getElementsByTagName('image')[0].setAttribute('xlink:href',qr_img_src);
+qr_code_pattern_stub = document.getElementById('qr_fill_stub')
+qr_code_pattern_stub.getElementsByTagName('image')[0].setAttribute('xlink:href',qr_img_src);
+
+/*
+fill_svg_rect_image = (function(href,id,rect_node,svg_parent){ //create a pattern and fill a <rect> with it
+    rw = rect_node.getAttribute('width');rh = rect_node.getAttribute('height');
+    rx = rect_node.getAttribute('x');ry = rect_node.getAttribute('y');
+    pattern = document.createElement('pattern');
+    pattern_attrs = {'x':rx,'y':ry,'width':rw,'height':rh,"patternUnits":"userSpaceOnUse",'id':id};
+    for (attr in pattern_attrs){pattern_attrs.setAttribute(attr,pattern_attrs[attr])}; //set pattern attributes
+    image = document.createELemet('image');
+    image_attrs = {'x':rx,'y':ry,'xlink:href':href,"preserveAspectRatio":"true"};
+    for (attr in image_attrs){image_attrs.setAttribute(attr,image_attrs[attr])}; // set image attribute
+    // add image as child
+    pattern.appendChild(image);
+    // add the pattern to the defs
+    defs = svg_parent.getElementsByTagName('defs');
+    defs.appendChild(pattern);
+    // now lets fill the rect with the pattern
+    rect_node.setAttribute('fill','url(#'+id+')');
+})*/
 </script>
 </div>
